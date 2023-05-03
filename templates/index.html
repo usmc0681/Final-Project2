@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Recidivism Risk Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Gender" placeholder="Gender" required="required" />
+        <input type="text" name="Race" placeholder="Race" required="required" />
+		<input type="text" name="Release_Age" placeholder="Release Age" required="required" />
+		<input type="text" name="Gang_Affiliation" placeholder="Gang Affiliation" required="required" />
+    	<input type="text" name="Supervision_Risk_Score_First" placeholder="Supervision Risk Score" required="required" />
+        <input type="text" name="Supervision_Level_First" placeholder="Supervision Level" required="required" />
+		<input type="text" name="Education_Level" placeholder="Education Level" required="required" />
+		<input type="text" name="Dependents" placeholder="Dependents" required="required" />
+        <input type="text" name="Prison_Offense" placeholder="Prison Offense" required="required" />
+        <input type="text" name="Prison_Years" placeholder="Prison Years" required="required" />
+		<input type="text" name="Prior_Arrests_Episodes_Felony" placeholder="Prior Felony Arrests" required="required" />
+		<input type="text" name="Prior_Arrests_Episodes_Misd" placeholder="Prior Misd Arrests" required="required" />
+    	<input type="text" name="Prior_Arrests_Episodes_Violent" placeholder="Prior Violent Arrests" required="required" />
+        <input type="text" name="Prior_Arrests_Episodes_Property" placeholder="Prior Property Arrests" required="required" />
+		<input type="text" name="Prior_Arrests_Episodes_Drug" placeholder="Prior Drug Arrests" required="required" />
+		<input type="text" name="Prior_Arrests_Episodes_PPViolationCharges" placeholder="Prior PPV Arrests" required="required" />
+    	<input type="text" name="Prior_Conviction_Episodes_Prop" placeholder="Prior Property Convictions" required="required" />
+        <input type="text" name="Prior_Conviction_Episodes_Drug" placeholder="Prior Drug Convictions" required="required" />
+		<input type="text" name="Delinquency_Reports" placeholder="Delinquency Times" required="required" />
+		<input type="text" name="Program_Attendances" placeholder="Program Attendances" required="required" />
+    	<input type="text" name="Program_UnexcusedAbsences" placeholder="Unexcused Absences" required="required" />
+        <input type="text" name="Resident_Changes" placeholder="Residence Changes" required="required" />
+		<input type="text" name="Avg_Days_per_DrugTest" placeholder="Average Days per Drug Test" required="required" />
+		<input type="text" name="DrugTests_THC_Positive" placeholder="Positive THC Tests" required="required" />
+        <input type="text" name="DrugTests_Cocaine_Positive" placeholder="Positive Cocaine Tests" required="required" />
+        <input type="text" name="DrugTests_Meth_Positive" placeholder="Positive Meth Tests" required="required" />
+        <input type="text" name="DrugTests_Other_Positive" placeholder="Positive Other Tests" required="required" />
+        <input type="text" name="Percent_Days_Employed" placeholder="Percentage of Days Employed" required="required" />
+        <input type="text" name="Jobs_Per_Year" placeholder="Number of Jobs Per Year" required="required" />
+        <input type="text" name="Employment_Exempt" placeholder="Employment Exempt" required="required" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
